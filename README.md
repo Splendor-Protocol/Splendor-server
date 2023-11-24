@@ -5,6 +5,11 @@ Este es el repositorio del servidor de Splendor Protocol.
 ## Cómo Empezar
 
 Sigue estos pasos para ejecutar el servidor en tu máquina virtual:
+### REQUISITOS
+
+sudo apt install docker
+
+sudo apt install docker-compose
 
 ### 1. Clona el Repositorio
 
