@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  node-blockchain:
+    image: diegoasencio96/evm-blockchain:0.0.1
+    container_name: evm-blockchain-local
+    ports:
+      - "9944:9944"
+      - "30333:30333"
+      - "9933:9933"
+    expose:
+      - "9944"
+      - "30333"
+      - "9933"
+    environment:
+      - CARGO_HOME=/var/www/node-blockchain/.cargo
+    command:
+      - /bin/bash
+      - -c
+      - |
+        #ls
+        ./frontier-template-node \
+          --base-path /tmp/blockchain \
+          --rpc-external --rpc-cors all \
+          --ws-external --no-mdns \
+          --ws-max-connections 10000 --in-peers 500 --out-peers 500 \
+          #--sync warp
